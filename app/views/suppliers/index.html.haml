@@ -1,0 +1,26 @@
+%h1 Listar Proveedores
+%br
+
+= link_to 'Nuevo Proveedor', new_supplier_path, class:"btn btn-success text-white"
+%br
+%br
+%table
+  %thead
+    %tr
+      %th Nombre del Proveedor
+      %th Direccion
+      %th Telefono
+      %th Celular
+      %th Acciones
+    
+
+  %tbody
+    - @suppliers.each do |supplier|
+      %tr
+        %td= supplier.strNombreProveedor
+        %td= supplier.strDireccion
+        %td= supplier.strTelefono
+        %td= supplier.strCelular
+        %td= link_to 'Editar', edit_supplier_path(supplier), class:"btn btn-success text-white"
+
+

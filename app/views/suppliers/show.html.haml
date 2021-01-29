@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%h4 Verefica los Datos
+
+%p
+  %b Nombre del Proveedor:
+  = @supplier.strNombreProveedor
+%p
+  %b Descripcion:
+  = @supplier.strDireccion
+%p
+  %b Telefono:
+  = @supplier.strTelefono
+%p
+  %b Celular:
+  = @supplier.strCelular
+
+= link_to 'Aceptar', suppliers_path, class:"btn btn-success"

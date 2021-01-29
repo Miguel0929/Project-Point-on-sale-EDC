@@ -1,0 +1,16 @@
+= form_for @departament do |f|
+  - if @departament.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@departament.errors.count, "error")} prohibited this departament from being saved:"
+      %ul
+        - @departament.errors.full_messages.each do |message|
+          %li= message
+
+  .row
+    .col-md-6
+      = f.label :"Departamento del Producto:"
+      = f.text_field :strDepartament, class:"form-control", placeholder:"Ejemplo: Videojuegos, Electronica etc."
+  %br
+  .actions
+    = f.submit 'Aceptar', class:"btn btn-success  col-md-2"
+    = link_to "Atrás", products_path, class:"btn btn-info col-md-2 "

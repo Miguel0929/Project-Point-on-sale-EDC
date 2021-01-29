@@ -1,0 +1,35 @@
+%h1.text-center Listado de Productos
+
+= link_to 'Nuevo Producto', new_product_path, class:"btn btn-success text-white"
+%br
+%br 
+.row
+  - @products.each do |product|
+    .col-md-4.col-lg-3.col-sm-12.my-2
+      .card.text-center.border-dark-mb-3
+        .card-header.text-white.bg-dark.mb-3 
+          =product.strDescripcion 
+        .card-body
+        =image_tag product.img_product(:medium), class:"card-img-top"
+        Precio $
+        = product.price
+        %br
+        Stock: 
+        =product.quantity
+        %br
+        Proveedor: 
+        =product.supplier.strNombreProveedor
+        %br
+        Departamento: 
+        =product.departament.strDepartament
+        .row
+          .col-md-2
+          = link_to 'Editar', edit_product_path(product), class:"btn btn-success mx-1 btn-sm text-white"
+          .col-md-2
+          %i.fa.fa-fw.fa-eye.fa-lg
+          =render "partials/buttons",product:product
+        .card-footer.text-muted
+          =product.created_at
+
+
+

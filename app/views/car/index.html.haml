@@ -1,0 +1,31 @@
+%h1 Carrito de compras
+%br
+  .row
+    .col-md-4.col-md-4
+    .col-md-4.col-md-offset-4
+    %h3 Total:$
+    %h3#mycartTotal=@shopping_cart.total 
+  .row
+    =button_to "/pay",method: :post,class:"btn btn-info" do 
+      Pagar con Paypal
+%table
+  %thead
+    %tr
+      %th Producto
+      %th Costo
+      %th Unidades
+      %th Acciones
+    
+
+  %tbody{id:"my_cart", cart_id: "#{@shopping_cart.id}"}
+  -@shopping_cart.in_cart.each do |product|
+    %tr{id: "p_#{product[:id]}"}
+    %td= product[:nombre]
+    %td= product[:precio]
+    %td= product[:cantidad]
+    %td
+      %a.btn.btn-danger{:product => "#{product[:id]}", :onclick => "actions.deleteItem(this,#{product[:id]})"}Eliminar
+
+    
+    
+

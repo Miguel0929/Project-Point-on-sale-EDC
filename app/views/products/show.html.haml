@@ -1,0 +1,19 @@
+%p#notice= notice
+= image_tag @product.img_product(:medium) 
+%p
+  %b Descripcion:
+  = @product.strDescripcion
+%p
+  %b Precio:
+  = @product.price
+%p
+  %b Stock:
+  = @product.quantity
+
+%p
+  %b Proveedor:
+  = @product.supplier.strNombreProveedor
+%p
+  %b Departamento:
+  = @product.departament.strDepartament
+= link_to 'Aceptar', products_path, class:"btn btn-success text-white"

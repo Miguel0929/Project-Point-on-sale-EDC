@@ -1,0 +1,39 @@
+= form_for @product do |f|
+  - if @product.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+      %ul
+        - @product.errors.full_messages.each do |message|
+          %li= message
+  
+  .row
+    .col-6
+      .field
+      = f.label :"Descripcion"
+      = f.text_field :strDescripcion, class:"form-control", placeholder:"Ejemplo: Gansito 100g"
+    .col-6
+      .field
+      = f.label :"Precio"
+      = f.text_field :price, class:"form-control", placeholder:"Ejemplo: 10.5"
+  .row
+    .col-6
+      .field 
+      = f.label :"Stock"
+      = f.text_field :quantity, class:"form-control", type:"number"
+    .col-6
+      .field 
+      = f.label :"Proveedor"
+      = f.collection_select :supplier_id, Supplier.all, :id, :strNombreProveedor, {prompt: "Seleccionar Proveedor"}, {class: "form-control"}
+  .row
+    .col-6
+      .field
+      = f.label :"Selecciona imagen"
+      = f.file_field :img_product, class:"form-control"
+    .col-6
+      .field 
+      = f.label :"Departamento de venta"
+      = f.collection_select :departament_id, Departament.all, :id, :strDepartament, {prompt: "Seleccionar Departamento"}, {class: "form-control"}
+  %br
+  .actions
+    = f.submit 'Aceptar', class:"btn btn-success  col-md-2"
+    = link_to "Atrás", products_path, class:"btn btn-info col-md-2 "

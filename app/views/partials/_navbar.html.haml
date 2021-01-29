@@ -1,0 +1,24 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container
+  %a.navbar-brand{:href => "#"} Sistema de Ventas
+  %button.navbar-toggler{ :type => "button", "data-toggle" => "collapse", "data-target" => "#navbarColor01", "aria-controls" => "navbarColor01", "aria-expanded" => "false", "aria-label" => "Toggle navigation"}   
+    %span.navbar-toggler-icon
+  %navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+    %li.nav-item
+    =link_to "Inicio", root_path,class:"btn btn-dark text-white"
+    %li.nav-item
+    =link_to "Proveedores", suppliers_path,class:"btn btn-dark text-white"
+    %li.nav-item
+    =link_to "Nuevo Departamento", new_departament_path,class:"btn btn-dark text-white"
+    %li.nav-item
+    %p.text-white Carrito
+    =link_to car_index_path,class:" btn btn-dark" do  
+      %i.fa.fa-fw.fa-shopping-cart.fa-lg#mycart.text-white
+        = @shopping_cart.products.count
+          
+          
+        
+         
+     
+    
